@@ -1,11 +1,12 @@
 const hapi = require('hapi');
+const userRoute = require('./routes/user.routes')
 
 const server = hapi.server({
     host:'localhost',
     port:8000
 });
 
-server.route(require('./routes/user.routes').getAllUsers);
+server.route(userRoute);
 
 const start = async function(){
     try {

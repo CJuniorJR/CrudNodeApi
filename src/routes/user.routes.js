@@ -1,11 +1,9 @@
 let routes = {
-    getAllUsers: {
         method: 'GET',
         path:'/user',
-        handler:function(request,response){
-            return [];
+        handler:function(request,h){
+            return h.response([]).code(200);
         }
-    }
 }
 
 module.exports = routes;
