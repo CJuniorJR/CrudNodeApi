@@ -5,13 +5,7 @@ const server = hapi.server({
     port:8000
 });
 
-server.route({
-    method: 'GET',
-    path:'/user',
-    handler:function(request,response){
-        return [];
-    }
-});
+server.route(require('./routes/user.routes').getAllUsers);
 
 const start = async function(){
     try {
