@@ -1,5 +1,5 @@
 let routes = {
-    getAllUsers: () => {
+    getAllUsers: {
         method: 'GET',
         path:'/user',
         handler:function(request,response){
