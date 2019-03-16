@@ -9,7 +9,7 @@ server.route({
     method: 'GET',
     path:'/user',
     handler:function(request,response){
-        return user;
+        return [];
     }
 });
 
