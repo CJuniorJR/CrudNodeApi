@@ -11,7 +11,20 @@ var user = new mongo.Schema({
     nome: {
         type: String,
         required: true
+    },
+    login: {
+        type: String,
+        required: true
+    },
+    senha: {
+        type: String,
+        required: true
+    },
+    email: {
+        type: String,
+        required: true
     }
+
 });
 
 module.exports = mongo.model('user',user);
