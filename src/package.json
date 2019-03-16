@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/CJuniorJR/CrudNodeApi/issues"
   },
-  "homepage": "https://github.com/CJuniorJR/CrudNodeApi#readme"
+  "homepage": "https://github.com/CJuniorJR/CrudNodeApi#readme",
+  "dependencies": {
+    "mongoose": "^5.4.19"
+  }
 }
