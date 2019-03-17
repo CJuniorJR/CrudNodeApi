@@ -1,30 +1,15 @@
 var mongo = require('mongoose');
-mongo.connect('mongodb://localhost:27017/user');
 
-var db = mongo.connection;
-db.on('error', console.error.bind(console,'Erro de conecção:'));
-db.once('open',function(){
-    console.log("Conexão realizada com sucesso!");
-});
 
-var user = new mongo.Schema({
-    nome: {
-        type: String,
-        required: true
-    },
-    login: {
-        type: String,
-        required: true
-    },
-    senha: {
-        type: String,
-        required: true
-    },
-    email: {
-        type: String,
-        required: true
-    }
 
-});
+module.exports = async () => {
 
-module.exports = mongo.model('user',user);
+    await mongo.connect('mongodb://localhost:27017/user');
+
+    var conn = mongo.connection;
+    conn.on('error', console.error.bind(console, 'Erro de conexão:'));
+    
+    conn.once('open',  () => {
+        console.log("Conexão realizada com sucesso!");
+    });
+}

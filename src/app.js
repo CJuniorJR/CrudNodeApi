@@ -1,6 +1,6 @@
 const hapi = require('hapi');
 const userRoute = require('./routes/user.routes')
-
+const database = require('./infrastructure/database')
 const server = hapi.server({
     host:'localhost',
     port:8000
@@ -10,6 +10,7 @@ server.route(userRoute);
 
 const start = async function(){
     try {
+        await database();
         await server.start();
     } 
     catch (err) {
