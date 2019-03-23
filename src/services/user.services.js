@@ -1,4 +1,3 @@
-const database = require('../infrastructure/database')
 const user = require('../models/user.model')
 
 module.exports = {
@@ -9,7 +8,10 @@ module.exports = {
         return await user.model.create(u);
     },
     delete: async(id) => {
-        //to-do
+        return await user.model.findByIdAndDelete(id);
+    },
+    findAll: async() => {
+        return await user.model.find();
     }
 
 };

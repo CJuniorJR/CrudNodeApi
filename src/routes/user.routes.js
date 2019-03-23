@@ -15,6 +15,11 @@ let routes = [{
         path: '/user/{id}', // no caso de get, os parametros sao passados pela url (request.params)
         handler: userController.delete
 },
+{
+        method: "GET",
+        path: '/user',
+        handler: userController.findAll
+}
 ]
 
 module.exports = routes;

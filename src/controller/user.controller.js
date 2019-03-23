@@ -8,7 +8,10 @@ module.exports = {
     {
         return await service.findById(request.params.id);//como é get, o parametro vem da url (olhar routes)
     },
-    delete: (request, h) =>{
-        //to-do
+    delete: async (request, h) =>{
+        return await service.delete(request.params.id);
+    },
+    findAll: async (request, h) => {
+        return await service.findAll();
     }
 }
