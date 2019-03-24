@@ -12,6 +12,9 @@ module.exports = {
     },
     findAll: async() => {
         return await user.model.find();
+    },
+    findByName: async(name) => {
+        return await user.model.find({nome: new RegExp(name,'i')});
     }
 
 };

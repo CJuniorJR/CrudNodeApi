@@ -12,6 +12,11 @@ module.exports = {
         return await service.delete(request.params.id);
     },
     findAll: async (request, h) => {
-        return await service.findAll();
+        if(request.query){
+            return await service.findByName(request.query.nome);
+        }else{
+            return await service.findAll();
+        }
+        
     }
 }
