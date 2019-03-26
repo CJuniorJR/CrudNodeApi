@@ -3,7 +3,10 @@ const userRoute = require('./routes/user.routes');
 const database = require('./infrastructure/database');
 const server = hapi.server({
     host:'localhost',
-    port:8000
+    port:8000,
+    routes: {
+        cors:true
+    }
 });
 
 server.route(userRoute);
