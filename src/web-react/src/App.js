@@ -33,7 +33,6 @@ class App extends Component {
             </div>
             <div className="content" id="content">
               <UsuarioBox />
-                
             </div>
           </div>            
 
