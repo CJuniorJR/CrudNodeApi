@@ -41,7 +41,7 @@
                 linha += "<td>" + user.nome + "</td>"
                 linha += "<td>" + user.email + "</td>"
                 linha += "<td>" + user.login + "</td>"
-                linha += "<td><a class='user-item' href='#' id='" + user._id + "'>Excluir</a></td>"
+                linha += "<td><a class='user-item-delete' href='#' id='" + user._id + "'>Excluir</a></td>"
                 linha += "</tr>"
                 $("#table-content").append(linha);
             });
@@ -54,7 +54,7 @@
     let initHandlers = () => {
         $(container)
             .on('click', '#enviar', controller.salvarUsuario)
-            .on('click', '.user-item', controller.excluirUsuario)
+            .on('click', '.user-item-delete', controller.excluirUsuario)
     }
 
     let init = () => {
