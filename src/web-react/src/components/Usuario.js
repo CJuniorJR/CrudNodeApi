@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import $ from 'jquery';
 import InputCustomizado from './InputCustomizado';
 import axios from 'axios';
-import swal from 'sweetalert';
+import userController from '../controller/userController';
 
 class FormUsuario extends Component {
     
@@ -29,14 +29,9 @@ class FormUsuario extends Component {
           login: this.state.login,
           senha: this.state.senha
     }
-      
-        axios.post('http://localhost:8000/user',usuario).then(function(response){
-            this.props.Listar();
-            swal("Cadastrado!",usuario.nome+" Cadastrado com sucesso!","success");
-            this.limparCampos();
-        }.bind(this)).catch(error => {
-            console.log(error);
-        });
+      userController.Cadastrar(usuario);
+      this.props.Listar();
+      this.limparCampos();
     }
       
     setNome(event){
@@ -81,39 +76,20 @@ class FormUsuario extends Component {
 
 class TabelaUsuario extends Component{
 
-  Excluir = (id) => {
-    swal({
-      title: "Você tem certeza?",
-      text: "Depois de Exlcuido você não conseguira recuperar este usuario!",
-      icon: "warning",
-      buttons: true,
-      dangerMode: true,
-    })
-    .then((willDelete) => {
-      if (willDelete) {
-        axios.delete('http://localhost:8000/user/'+id).then(function(){      
-            this.props.Listar();
-            swal("Poof! Usuario Excluido com sucesso!", {
-              icon: "success",
-            });
-         }.bind(this)); 
-      } else {
-        swal("Usuario intacto!");
-      }
-    });
-    
+  listar = () =>{
+    this.props.Listar();
   }
 
     render(){
         return (
             <div>            
-                <table className="pure-table">
+                <table className="pure-table pure-table-striped">
                   <thead>
                     <tr>
                       <th>Nome</th>
                       <th>Email</th>
                       <th>Login</th>
-                      <th>Ações</th>
+                      <th colSpan="2">Ações</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -123,7 +99,8 @@ class TabelaUsuario extends Component{
                           <td>{user.nome}</td>
                           <td>{user.email}</td>
                           <td>{user.login}</td>
-                          <td><button onClick={() => this.Excluir(user._id)} className="pure-button button-success" >Excluir</button></td>
+                          <td><button className="pure-button button-success" >Editar</button></td>
+                          <td><button onClick={() => userController.Excluir(this.listar,user._id)} className="pure-button button-success" >Excluir</button></td>
                         </tr>
                       })
                     }
