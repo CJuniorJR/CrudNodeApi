@@ -18,5 +18,8 @@ module.exports = {
             return await service.findAll();
         }
         
+    },
+    update: async (request, h)=>{
+        return await service.update(request.params.id, request.payload)
     }
 }
