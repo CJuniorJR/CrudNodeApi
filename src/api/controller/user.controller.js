@@ -26,6 +26,9 @@ module.exports = {
     },
     update: async (request, h)=>{
         return await service.update(request.params.id, request.payload)
+<<<<<<< HEAD
+>>>>>>> 7fe5757988fab1a2919032e14d456d887a606149
+=======
 >>>>>>> 7fe5757988fab1a2919032e14d456d887a606149
     }
 }
