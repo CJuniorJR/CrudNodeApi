@@ -17,6 +17,15 @@ module.exports = {
         }else{
             return await service.findAll();
         }
+<<<<<<< HEAD
+    },
+    update: async (request, h) => {
+        return await service.update(request.params.id, request.payload);
+=======
         
+    },
+    update: async (request, h)=>{
+        return await service.update(request.params.id, request.payload)
+>>>>>>> 7fe5757988fab1a2919032e14d456d887a606149
     }
 }

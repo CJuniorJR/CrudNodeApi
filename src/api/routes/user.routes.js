@@ -19,6 +19,11 @@ let routes = [{
         method: "GET",
         path: '/user',
         handler: userController.findAll
+},
+{
+        method: "PUT",
+        path: '/user/{id}',
+        handler: userController.update
 }
 ]
 

@@ -69,6 +69,7 @@ class FormUsuario extends Component {
                     <button type="submit" className="pure-button pure-button-primary">Gravar</button>                                    
                     </div>
                 </form>
+                <InputCustomizado id="search-by-name" type="text" name="search" label="Procurar" value={this.state.nome} />
             </div>     
         )
     }
