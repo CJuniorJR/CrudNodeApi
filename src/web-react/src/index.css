@@ -6,3 +6,7 @@ body {
 th { 
   text-align: center;
 }
+
+.lbl-erro{
+  color: red;
+}
